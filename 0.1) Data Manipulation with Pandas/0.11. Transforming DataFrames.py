@@ -14,6 +14,10 @@
 # Different cols can contain different data types. 
 # Same col only contains same data type.
 
+
+
+# Basic commands
+
 print(dataframename.head()) # Shows the first 5 rows of the DataFrame.
 
 print(dataframename.info()) # Shows the data types of each col and the 
@@ -36,4 +40,20 @@ print(dataframename.index) # Shows the index of the DataFrame.
 # Pandas Philosopy:
 #   There should be one - and preferably only one - obvious way to do it.
 
+
+
+# Sorting
+
+dogs.sort_values("weight_kg") # Sorts the DataFrame by the values of the
+#                                 specified col, weight_kg
+
+dogs.sort_values("weight_kg", ascending=False) # Sorts the DataFrame by the 
+#                                                  values of the specified col,
+#                                                  weight_kg, in descending order.
+
+# Sort first by weight, then by height
+dogs.sort_values(["weight_kg", "height_cm"], ascending=[True, False])
+
+# Select just one col 
+dogs["name"]
 
