@@ -57,3 +57,4 @@ dogs.sort_values(["weight_kg", "height_cm"], ascending=[True, False])
 # Select just one col 
 dogs["name"]
 
+# Select multiple cols
