@@ -51,7 +51,7 @@ dogs.sort_values("weight_kg", ascending=False) # Sorts the DataFrame by the
 #                                                  values of the specified col,
 #                                                  weight_kg, in descending order.
 
-# Sort first by weight, then by height
+# Sort first by weight, then by height (put both sets into lists = [] )
 dogs.sort_values(["weight_kg", "height_cm"], ascending=[True, False])
 
 # Select just one col 
@@ -87,4 +87,28 @@ dogs[ (dogs["breed"] == "Labrador") & (dogs["color"] == "Brown") ]
 # Filter for multiple values of a categorical variable (e.g., color type)
 is_black_or_brown = dogs["color"].isin(["Black", "Brown"]) 
 dogs[is_black_or_brown]
+
+# Another example of the above 
+# The Mojave Desert states 
+canu = ["California", "Arizona", "Nevada", "Utah"]
+# Filter for rows in the Mojave Desert states 
+mojave_homelessness = homelessness[homelessness["state"].isin(canu)]
+print(mojave_homelessness)
+
+
+
+# New Columns
+
+dogs["height_m"] = dogs["height_cm"] / 100
+# creates a new col called height_m which is the height in metres
+
+dogs["bmi"] = dogs["weight_kg"] / dogs["height_m"] ** 2
+# creates a new col called bmi
+
+# Multiple manipulations, finding all skinny dogs
+
+bmi_lt_100 = dogs[dogs["bmi"] < 100] # bmi > 100
+bmi_lt_100_height = bmi_lt_100.sort_values("height_cm", ascending=False) # Sort in desc. order,
+                                                                      # tallest skinny dogs at top.
+bmi_lt_100_height[["name", "height_cm", "bmi"]] # Produce only the 3 cols we're interested in.
 
