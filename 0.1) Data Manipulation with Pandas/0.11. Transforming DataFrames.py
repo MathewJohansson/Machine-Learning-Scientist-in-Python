@@ -58,3 +58,26 @@ dogs.sort_values(["weight_kg", "height_cm"], ascending=[True, False])
 dogs["name"]
 
 # Select multiple cols
+dogs["breed", "height_cm"]
+
+# Alternative way 
+cols_to_subset = ["breed", "height_cm"]
+dogs[cols_to_subset]
+
+# Subsetting rows (filter against)
+dogs["height_cm"] > 50 # produces boolean results for heights > 50
+
+# Subsetting for the rows > 50, produces all cols for each row
+dogs[dogs["height_cm"] > 50]
+
+# Subset based on text data (by breed)
+dogs[dogs["breed"] == "Labrador"] 
+
+# Subset based on dates (dogs born before 1st Jan 2015)
+dogs[dogs["date_of_birth"] < "2015-01-01"]
+
+# Subset multiple conditions
+is_lab = dogs["breed"] == "Labrador"
+is_brown = dogs["color"] == "Brown"
+dogs[is_lab & is_brown]
+
