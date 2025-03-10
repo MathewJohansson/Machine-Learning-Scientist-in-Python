@@ -81,3 +81,10 @@ is_lab = dogs["breed"] == "Labrador"
 is_brown = dogs["color"] == "Brown"
 dogs[is_lab & is_brown]
 
+# To do the above subsetting of multiple conditions on one line
+dogs[ (dogs["breed"] == "Labrador") & (dogs["color"] == "Brown") ]
+
+# Filter for multiple values of a categorical variable (e.g., color type)
+is_black_or_brown = dogs["color"].isin(["Black", "Brown"]) 
+dogs[is_black_or_brown]
+
