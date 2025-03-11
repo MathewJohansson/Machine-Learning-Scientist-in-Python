@@ -71,3 +71,21 @@ print(sales_1_1[["date", "weekly_sales", "cum_weekly_sales", "cum_max_sales"]])
 
 # Counting
 
+# vet_visits = df on dog visits to a vet
+
+# Drop duplicate names - but two dogs may have the same name
+vet_visits.drop_duplicates(subset="name")
+
+# Drop duplicates where name and breed are the same
+unique_dogs = vet_visits.drop_duplicates(subset=["name", "breed"])
+print(unique_dogs)
+
+# Counts dogs of each breed 
+unique_dogs["breed"].value_counts()
+
+# Order them in breed counts, highest number first
+unique_dogs["breed"].value_counts(sort=True) 
+
+# State proportions of each breed out of total 
+unique_dogs["breed"].value_counts(normalize=True)
+
