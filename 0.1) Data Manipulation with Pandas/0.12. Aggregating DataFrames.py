@@ -89,3 +89,20 @@ unique_dogs["breed"].value_counts(sort=True)
 # State proportions of each breed out of total 
 unique_dogs["breed"].value_counts(normalize=True)
 
+
+
+# Grouped summary statistics
+
+# Group by colour of dog, select weight col, and take the mean 
+dogs.groupby("color")["weight_kg"].mean()
+
+# Multiple grouped summaries (for minimum, maximum, and sum of the groups)
+dogs.groupby("color")["weight_kg"].agg([min, max, sum])
+#                                  Remember to use the .agg() function. 
+
+# Group by mutiple variables (colour and breed)
+dogs.groupby(["color", "breed"])["weight_kg"].mean()
+
+# Many groups, many summaries 
+dogs.groupby(["color", "breed"])[["weight_kg", "height_cm"]].mean()
+
