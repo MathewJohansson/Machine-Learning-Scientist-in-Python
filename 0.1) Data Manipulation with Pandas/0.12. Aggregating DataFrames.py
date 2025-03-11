@@ -91,6 +91,31 @@ unique_dogs["breed"].value_counts(normalize=True)
 
 
 
+# -------------------------------
+
+# E.g., sum of sales, weekly sales for each store, proportions for each store, and group by.
+
+sales_all = sales["weekly_sales"].sum()
+
+# Subset for type A, B, and C stores, calc total weekly sales
+sales_A = sales[sales["type"] == "A"]["weekly_sales"].sum()
+sales_B = sales[sales["type"] == "B"]["weekly_sales"].sum()
+sales_C = sales[sales["type"] == "C"]["weekly_sales"].sum()
+
+# Get proportion for each type
+sales_propn_by_type = [sales_A, sales_B, sales_C] / sales_all
+print(sales_propn_by_type)
+
+# Group by type; calc total weekly sales
+sales_by_type = sales.groupby("type")["weekly_sales"].sum()
+
+# Group by type and is_holiday; calc total weekly sales
+sales_by_type_is_holiday = sales.groupby(["type", "is_holiday"])["weekly_sales"].sum()
+print(sales_by_type_is_holiday)
+
+# -------------------------------
+
+
 # Grouped summary statistics
 
 # Group by colour of dog, select weight col, and take the mean 
@@ -105,4 +130,35 @@ dogs.groupby(["color", "breed"])["weight_kg"].mean()
 
 # Many groups, many summaries 
 dogs.groupby(["color", "breed"])[["weight_kg", "height_cm"]].mean()
+
+
+
+# Pivot tables
+
+# Instead of grouping by colour, and calculating mean weights like before:
+dogs.groupby("color")["weight_kg"].mean()
+#   we can do the same thing using the pivot_table method:
+dogs.pivot_table(values="weight_kg", index="color")
+#       pivot_table takes the mean by default.
+
+
+# Using a different summary statistic 
+import numpy as np 
+dogs.pivot_table(values="weight_kg", index="color", aggfunc=np.median)
+
+# Multiple summary statistics 
+dogs.pivot_table(values="weight_kg", index="color", aggfunc=[np.mean, np.median])
+
+
+# Instead of computing mean weight by two variables like before:
+dogs.groupby(["color", "breed"])["weight_kg"].mean()
+#   we can do the same thing using the pivot_table method:
+dogs.pivot_table(values="weight_kg", index="color", columns="breed")
+#   - This creates a table, whereby NAs exist where there are no breeds of certain colours.
+
+# Change the above outcome table to display 0s instead of NAs
+dogs.pivot_table(values="weight_kg", index="color", columns="breed", fill_value=0)
+
+# margins=True sets last col to be the mean of all rows 
+dogs.pivot_table(values="weight_kg", index="color", columns="breed", fill_value=0, margins=True)
 
