@@ -43,7 +43,7 @@ dogs_ind3.loc[[("Labrador", "Brown"), ("Chihuahua", "Tan")]]
 # Sort by index values
 dogs_ind3.sort_index()
 
-# Controlling sort_index 
+# Controlling sort_index, sorts each index value
 dogs_ind3.sort_index(level=["color", "breed"], ascending=[True, False])
 
 
