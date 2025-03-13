@@ -52,3 +52,7 @@ dogs_ind3.sort_index(level=["color", "breed"], ascending=[True, False])
 # - Indexes violate "tidy data" principles. 
 # - Two syntaxes need to be learned. 
 
+
+
+# Slicing lists
+
