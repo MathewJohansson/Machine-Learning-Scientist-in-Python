@@ -60,3 +60,38 @@ dogs_ind3.sort_index(level=["color", "breed"], ascending=[True, False])
 breeds = ["Labrador", "Poodle", "Chow Chow", "Schnauzer", "Labrador", "Chihuahua", "St. Bernard"]
 breeds[2:5] # prints out the 3rd, 4th, and 5th elements in the list (5 not included). 
 
+# For all
+breeds[:]
+
+# Sort the index before slicing 
+dogs_srt = dogs.sort_index(["breed", "color"]).sort_index()
+
+# Slice rows at the outer level of an index
+dogs_srt.loc["Chow Chow":"Poodle"]
+# index values rather than numbers are stated to access indexes
+
+# Slicing inner index levels correctly - pass the first and last positions 
+#                                        as tuples
+dogs_srt.loc[("Labrador", "Brown"):("Schnauzer", "Grey")]
+
+
+# Slicing columns 
+dogs_srt.loc[:, "name":"height_cm"]
+
+# Slicing cols and rows at the same time 
+dogs_srt.loc[("Labrador", "Brown"):("Schnauzer", "Grey"), "name":"height_cm"]
+
+
+# Subset DataFrames by a range of dates 
+dogs = dogs.set_index("date-of-birth").sort_index()
+
+# Slicing by dates 
+dogs.loc["2014-08-25":"2016-09-16"]
+
+# Slicing between 2014-01-01 and 2016-12-31
+dogs.loc["2014":"2016"]
+
+
+# Slicing using iloc method
+dog.iloc[2:5, 1:4]
+
