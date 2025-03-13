@@ -54,5 +54,9 @@ dogs_ind3.sort_index(level=["color", "breed"], ascending=[True, False])
 
 
 
-# Slicing lists
+# Slicing lists - selecting consecutive elements from objects. 
+
+# E.g., 
+breeds = ["Labrador", "Poodle", "Chow Chow", "Schnauzer", "Labrador", "Chihuahua", "St. Bernard"]
+breeds[2:5] # prints out the 3rd, 4th, and 5th elements in the list (5 not included). 
 
