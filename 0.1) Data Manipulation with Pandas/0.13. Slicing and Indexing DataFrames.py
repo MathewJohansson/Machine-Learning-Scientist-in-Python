@@ -138,3 +138,27 @@ print(temperatures_ind.loc["2010-08-01":"2011-02-28"])
 
 # Working with pivot tables 
 
+# Using the dataset dog_pack, remember that this is how to create a pivot table
+dogs_height_by_breed_vs_color = dog_pack.pivot_table(
+    "height_cm", index="breed", columns="color")
+#   First argument = column name, index argument lists cols to group by, and the 
+#                       columns argument lists the cols to group by and display in cols
+
+# Pivot tables are just DataFrames with sorted indexes. 
+
+# loc and slicing combo is ideal for subsetting pivot tables: 
+dogs_height_by_breed_vs_color.loc["Chow Chow":"Poodle"]
+
+# Calculating summary statistics, e.g., for mean.
+# It uses axis argument whereby default value is "index". 
+# This just means to calculate the given statistic across rows. 
+dogs_height_by_breed_vs_color.mean(axis="index")
+# This will produce: an index for the colours of dogs, and the first col is mean of colours
+# The behaviour is the same if we don't specify axis="index"
+
+# Calculating summary stat across the cols
+dogs_height_by_breed_vs_color.mean(axis="columns")
+# The mean height is calculated for each breed
+
+# The above calculatins are only possible in pivot tables where data types are the same
+
