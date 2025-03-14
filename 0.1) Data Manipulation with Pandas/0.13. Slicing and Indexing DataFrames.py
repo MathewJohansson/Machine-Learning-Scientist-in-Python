@@ -160,5 +160,5 @@ dogs_height_by_breed_vs_color.mean(axis="index")
 dogs_height_by_breed_vs_color.mean(axis="columns")
 # The mean height is calculated for each breed
 
-# The above calculatins are only possible in pivot tables where data types are the same
+# The above calculations are only possible in pivot tables where data types are the same
 
