@@ -134,3 +134,7 @@ print(temperatures_ind.loc["2010":"2011"])
 # Use .loc[] to subset temperatures_ind for rows from Aug 2010 to Feb 2011
 print(temperatures_ind.loc["2010-08-01":"2011-02-28"])
 
+
+
+# Working with pivot tables 
+
