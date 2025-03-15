@@ -167,9 +167,12 @@ dogs_height_by_breed_vs_color.mean(axis="columns")
 # Add a year column to temperatures (accesses components of a date)
 temperatures["year"] = temperatures["date"].dt.year
 
-# Get the worldwide mean temp by year 
+# Worldwide mean temp by year 
 mean_temp_by_country_vs_year.mean()
 
 # Filter for the year that had the highest mean temp
 print(mean_temp_by_year[mean_temp_by_year == mean_temp_by_year.max()])
+
+# Mean temp by city 
+mean_temp_by_city = temp_by_country_city_vs_year.mean(axis="columns")
 
