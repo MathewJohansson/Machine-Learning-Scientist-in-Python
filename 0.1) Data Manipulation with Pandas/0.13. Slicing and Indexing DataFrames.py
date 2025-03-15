@@ -162,3 +162,8 @@ dogs_height_by_breed_vs_color.mean(axis="columns")
 
 # The above calculations are only possible in pivot tables where data types are the same
 
+
+
+# Add a year column to temperatures (accesses components of a date)
+temperatures["year"] = temperatures["date"].dt.year
+
