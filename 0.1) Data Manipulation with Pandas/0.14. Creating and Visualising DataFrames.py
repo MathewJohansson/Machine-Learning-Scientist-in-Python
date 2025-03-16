@@ -177,3 +177,24 @@ dict_of_lists = {
 
 new_dogs = pd.DataFrame(dict_of_lists)
 
+
+
+# Reading and writing CSVs 
+
+# new_dogs.csv has the CSV file contents: 
+# name,breed,height_cm,weight_kg,d_o_b
+# Ginger,Dachshund,22,10,2019-03-14
+# Scout,Dalmation,59,25,2019-05-09
+
+# Put this CSV into a DataFrame 
+import pandas as pd 
+new_dogs = pd.read_csv("new_dogs.csv")
+print(new_dogs)
+
+# Add a bmi index column to new_dogs 
+new_dogs["bmi"] = new_dogs["weight_kg"] / (new_dogs["height_cm"] / 100) ** 2
+
+# Create an updated CSV file 
+new_dogs.to_csv("new_dogs_with_bmi.csv")
+#   this will then have the original CSV file contents with a bmi col added on 
+
