@@ -13,3 +13,21 @@
 #                             about a larger population. 
 #    E.g., what percentage of people drive to work, based on our data?
 
+
+# Types of data:
+# 1. Numeric (quantitative):
+#    - Continuous (measured). E.g., speed or time. 
+#    - Discrete (counted). E.g., no. of pets or packages. 
+
+# 2. Categorical (qualitative). 
+#    - Nominal (unordered). E.g., married/unmarried, country of residence. 
+#    - Ordinal (ordered). E.g., survey answers (str. disagree - neither - str. agree, etc.)
+
+#   Categorical data can be represented as numbers. E.g.: 
+#   - Nominal - married/unmarried (1/0)
+#   - Ordinal - str. disagree (1) - neither (3) - str. agree (5)
+
+
+# For numerical data, summary statistics and plots such as scatterplots are ideal. 
+# For categorical data, counts and barplots are ideal. 
+
