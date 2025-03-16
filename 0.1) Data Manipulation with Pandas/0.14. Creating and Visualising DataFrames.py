@@ -122,3 +122,58 @@ dogs.dropna()
 # Replace NAN's with another value, such as 0 
 dogs.fillna(0)
 
+
+
+# Creating DataFrames 
+
+# A dictionary - each key-value pair is written as "key colon value"
+my_dict = {
+    "key1": value1, 
+    "key2": value2,
+    "key3": value3
+}
+
+# E.g., 
+my_dict = {
+    "title": "Charlotte's Web",
+    "author": "E.B. White",
+    "published": 1952
+}
+
+# Access values of a dictionary
+my_dict["key1"]
+
+
+# Two ways to create a DataFrame: from a list of dictionaries, and from a dictionary of lists 
+# 1. From a list of dictionaries, it is constructed row by row 
+# 2. From a dictionary of lists, it is constructed col by col 
+
+
+# 1. List of dictionaries:
+
+# Inputting new dog data into a DataFrame. First, create a new list to hold dictionaries 
+
+list_of_dicts = [
+    {"name": "Ginger", "breed": "Dachshund", "height_cm": 22, "weight_kg": 10, "date_of_birth": "2019-03-14"},
+    {"name": "SCout", "breed": "Dalmation", "height_cm": 59, "weight_kg": 25, "date_of_birth": "2019-05-09"}
+]
+
+# Then, convert it into a DataFrame 
+new_dogs = pd.DataFrame(list_of_dicts)
+
+
+# 2. Dictionary of lists: 
+
+# First create a dictionary 
+dict_of_lists = {
+    "name": ["Ginger", "Scout"],
+    "breed": ["Dachshund", "Dalmation"],
+    "height_cm": [22, 59],
+    "weight_kg": [10, 25],
+    "date_of_birth": ["2019-03-14", "2019-05-09"]
+}
+
+# Then convert it into a DataFrame 
+
+new_dogs = pd.DataFrame(dict_of_lists)
+
