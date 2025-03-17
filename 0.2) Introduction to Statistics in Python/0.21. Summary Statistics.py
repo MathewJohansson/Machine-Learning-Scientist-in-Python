@@ -47,3 +47,22 @@ msleep['sleep_total'].value_counts() # or:
 import statistics 
 statistics.mode(msleep['vore'])
 
+# Adding an outlier 
+# Subset msleep to select rows where 'vore' equals 'insecti' 
+msleep[msleep['vore'] == 'insecti']
+#   essentially all insectivores in the dataset. 
+
+# Mean and median of insectivore sleep times 
+msleep[msleep['vore'] == 'insecti']['sleep_total'].agg([np.mean, np.median])
+
+# Now an insect has been added that never sleeps - the above code will produce very 
+#                                                  different results
+# The mean will go down significantly, but not so much the median. 
+# The mean is more sensitive to extreme values than the median. 
+
+# As the mean is more sensitive to extreme values, it's better for symmetrical data. 
+
+# Skew: 
+# Left-skewed data means the peak is to the right, with a tail trailing down toward the left. 
+# Right-skewed data is the opposite. 
+
