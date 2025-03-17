@@ -31,3 +31,19 @@
 # For numerical data, summary statistics and plots such as scatterplots are ideal. 
 # For categorical data, counts and barplots are ideal. 
 
+
+# Three measures of center: mean, median, mode. 
+
+# Mean = the average; add all numbers and divide by total number of data points. 
+import numpy as np
+np.mean()
+
+# Median = sort all data points and take the middle one. 
+msleep['sleep_total'].sort_values() # or:
+np.median(msleep['sleep_total']) 
+
+# Mode = most frequency value 
+msleep['sleep_total'].value_counts() # or:
+import statistics 
+statistics.mode(msleep['vore'])
+
