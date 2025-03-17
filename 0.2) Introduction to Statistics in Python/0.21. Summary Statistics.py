@@ -81,3 +81,9 @@ usa_consumption = food_consumption[food_consumption['country'] == 'USA']
 print(np.mean(usa_consumption['consumption']))
 print(np.median(usa_consumption['consumption']))
 
+# Import matplotlib.pylot, subset for rice food_category, then plot .hist() for rice and show
+import matplotlib.pyplot as plt 
+rice_consumption = food_consumption[food_consumption['food_category'] == 'rice']
+rice_consumption['co2_emission'].hist()
+plt.show()
+
