@@ -66,3 +66,5 @@ msleep[msleep['vore'] == 'insecti']['sleep_total'].agg([np.mean, np.median])
 # Left-skewed data means the peak is to the right, with a tail trailing down toward the left. 
 # Right-skewed data is the opposite. 
 
+# The mean is pulled in the direction of the skew. 
+
