@@ -87,3 +87,7 @@ rice_consumption = food_consumption[food_consumption['food_category'] == 'rice']
 rice_consumption['co2_emission'].hist()
 plt.show()
 
+
+
+# Measures of spread
+
