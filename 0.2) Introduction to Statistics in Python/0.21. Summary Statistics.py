@@ -68,3 +68,16 @@ msleep[msleep['vore'] == 'insecti']['sleep_total'].agg([np.mean, np.median])
 
 # The mean is pulled in the direction of the skew. 
 
+
+
+# E.g.: food_consumption dataset of countries, on kg of food per person per year in each country.
+#       incl. food category (consumption) and carbon footprint (co2_emissions). 
+
+import numpy as np 
+# Subset country for USA 
+usa_consumption = food_consumption[food_consumption['country'] == 'USA']
+
+# Mean and median consumption for USA
+print(np.mean(usa_consumption['consumption']))
+print(np.median(usa_consumption['consumption']))
+
