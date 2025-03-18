@@ -91,6 +91,7 @@ plt.show()
 
 # Measures of spread - how spread apart or close together data points are.
 
+
 # 1st measure = variance; average distance from each data point to the data's mean
 # To calculate, calculate distance between each point and the mean = one number for every data point.
 dists = msleep['sleep_total'] - np.mean(msleep['sleep_total'])
@@ -120,3 +121,28 @@ np.std(msleep['sleep_total'], ddof=1)
 dists = msleep['sleep_total'] - np.mean(msleep['sleep_total'])
 np.mean(np.abs(dists))
 
+
+# Differences between standard deviation and mean absolute deviation
+
+# - Std squares distances, penalising longer distances more than shorter ones. 
+# - Mean absolute deviation penalises each distance equally. 
+# - One isn't more common than the other, but SD is more common. 
+
+
+
+# Quantiles - percentiles. 
+np.quantile(msleep['sleep_total'], 0.5) # value at 50% 
+np.quantile(msleep['sleep_total'], [0, 0.25, 0.5, 0.75, 1]) # each 25% interval
+
+# Boxplots use quartiles 
+import matplotlib.pyplot as plt
+plt.boxplot(msleep['sleep_total'])
+plt.show() 
+
+# Two ways of computing quartiles 
+np.quantile(msleep['sleep_total'], [0, 0.2, 0.4, 0.6, 0.8, 1])
+np.quantile(msleep['sleep_total'], np.linspace(0, 1, 5)) 
+# whereby linspace(start, stop, num) for starting number, stopping number, and number of intervals.
+
+
+# Interquartile Range/IQR - distance between 25th and 75th percentile. 
