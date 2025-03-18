@@ -91,7 +91,20 @@ plt.show()
 
 # Measures of spread - how spread apart or close together data points are.
 
-# First measure = variance; average distance from each data point to the data's mean
+# 1st measure = variance; average distance from each data point to the data's mean
 # To calculate, calculate distance between each point and the mean = one number for every data point.
 dists = msleep['sleep_total'] - np.mean(msleep['sleep_total'])
 
+# then square each distance, and add them all together 
+sq_dists = dists ** 2
+sum_sq_dists = np.sum(sq_dists) 
+
+# finally, divide by number of data points -1 
+variance = sum_sq_dists / (83 - 1)
+
+# the variance here is squared, so np.var is used
+np.var(msleep['sleep_total'], ddof=1)
+# ddof=1 is for sample variance. Remove this for population variance. 
+
+
+# 2nd measure = standard deviation; 
