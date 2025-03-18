@@ -107,4 +107,16 @@ np.var(msleep['sleep_total'], ddof=1)
 # ddof=1 is for sample variance. Remove this for population variance. 
 
 
-# 2nd measure = standard deviation; 
+# 2nd measure = standard deviation; square root of the variance 
+
+# Two ways of writing this
+np.sqrt(np.var(msleep['sleep_total'], ddof=1))
+np.std(msleep['sleep_total'], ddof=1)
+
+
+# 3rd measure = mean absolute deviation; this takes the absolute values of the distances
+#               to the mean, then takes the mean of those differences. 
+
+dists = msleep['sleep_total'] - np.mean(msleep['sleep_total'])
+np.mean(np.abs(dists))
+
