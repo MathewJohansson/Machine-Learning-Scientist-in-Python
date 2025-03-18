@@ -164,8 +164,8 @@ from scipy.stats import iqr
 iqr = iqr(msleep['bodywt'])
 
 # 2. Calculate lower and upper thresholds 
-lower_threshold = np.quartile(msleep['bodywt'], 0.25) - 1.5 * iqr
-upper_threshold = np.quartile(msleep['bodywt'], 0.75) + 1.5 * iqr
+lower_threshold = np.quantile(msleep['bodywt'], 0.25) - 1.5 * iqr
+upper_threshold = np.quantile(msleep['bodywt'], 0.75) + 1.5 * iqr
 
 # 3. Subset DataFrame to find values above or below those thresholds 
 msleep[(msleep['sleep_total'] < lower_threshold) | (msleep['bodywt'] > upper_threshold)]
