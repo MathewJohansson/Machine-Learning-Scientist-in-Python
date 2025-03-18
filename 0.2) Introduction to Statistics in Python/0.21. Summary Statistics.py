@@ -146,3 +146,14 @@ np.quantile(msleep['sleep_total'], np.linspace(0, 1, 5))
 
 
 # Interquartile Range/IQR - distance between 25th and 75th percentile. 
+# Two methods: 
+np.quantile(msleep['sleep_total'], 0.75) - np.quantile(msleep['sleep_total'], 0.25)
+
+from scipy.stats import iqr 
+iqr(msleep['sleep_total'])
+
+
+# Outliers - data points that are substantially different from the others. 
+# Outlier = any data point less than the first quartile - 1.5x IQR. 
+#           any data point greater than the third quartile ? 1.5x IQR. 
+
