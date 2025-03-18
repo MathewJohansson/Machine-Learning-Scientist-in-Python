@@ -157,3 +157,21 @@ iqr(msleep['sleep_total'])
 # Outlier = any data point less than the first quartile - 1.5x IQR. 
 #           any data point greater than the third quartile ? 1.5x IQR. 
 
+# How to find outliers:
+
+# 1. Calculate IQR
+from scipy.stats import iqr 
+iqr = iqr(msleep['bodywt'])
+
+# 2. Calculate lower and upper thresholds 
+lower_threshold = np.quartile(msleep['bodywt'], 0.25) - 1.5 * iqr
+upper_threshold = np.quartile(msleep['bodywt'], 0.75) + 1.5 * iqr
+
+# 3. Subset DataFrame to find values above or below those thresholds 
+msleep[(msleep['sleep_total'] < lower_threshold) | (msleep['bodywt'] > upper_threshold)]
+
+
+
+# Compute summary statistics all in one go
+msleep['bodywt'].describe()
+
